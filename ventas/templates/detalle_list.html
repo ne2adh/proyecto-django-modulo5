@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Detalles de Ventas</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Venta</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for detalle in detalles %}
+        <tr>
+            <td>{{ detalle.fkVenta.id }}</td>
+            <td>{{ detalle.fkProducto.nombre }}</td>
+            <td>{{ detalle.cantidad }}</td>
+            <td>{{ detalle.precioUnitario }}</td>
+            <td>
+                <a href="{% url 'ventas:detalle_edit' detalle.id %}">Editar</a>
+                <a href="{% url 'ventas:detalle_delete' detalle.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'ventas:detalle_create' %}">Agregar Detalle</a>
+{% endblock %}

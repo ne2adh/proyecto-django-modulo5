@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Sistema de Ventas</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'ventas:cliente_list' %}">Clientes</a></li>
+                <li><a href="{% url 'ventas:producto_list' %}">Productos</a></li>
+                <li><a href="{% url 'ventas:venta_list' %}">Ventas</a></li>
+                <li><a href="{% url 'ventas:detalle_list' %}">Detalles</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

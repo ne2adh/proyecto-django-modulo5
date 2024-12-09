@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if producto %}Editar Producto{% else %}Nuevo Producto{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'ventas:producto_list' %}">Volver a la lista</a>
+{% endblock %}

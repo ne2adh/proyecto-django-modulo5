@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Productos</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio Unitario</th>
+            <th>Observación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precioUnitario }}</td>
+            <td>{{ producto.observacion }}</td>
+            <td>
+                <a href="{% url 'ventas:producto_edit' producto.id %}">Editar</a>
+                <a href="{% url 'ventas:producto_delete' producto.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'ventas:producto_create' %}">Agregar Producto</a>
+{% endblock %}
